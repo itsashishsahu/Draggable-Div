@@ -21,5 +21,31 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptatibus ratione eligendi odit modi soluta.</p>
         </div>
     </div>
+
+
+    <script>
+        const container = document.querySelector(".container"),
+        header = container.querySelector("header");
+
+        function onDrag({movementX, movementY}){
+            let getStyle  = window.getComputedStyle(container);
+            let left = parseInt(getStyle.left);//getting left value of container and parsing string to integer or number
+            let top = parseInt(getStyle.top);//getting top value of container and parsing string to integer or number
+            
+            container.style.left = `${left + movementX}px`;
+            container.style.top = `${top + movementY}px`;
+            
+        }
+
+        header.addEventListener("mousedown", ()=>{
+            header.classList.add("active");
+            header.addEventListener("mousemove", onDrag);
+        });
+
+        header.addEventListener("mouseup", ()=>{
+            header.classList.add("active");
+            header.removeEventListener("mousemove", onDrag);
+        });
+    </script>
 </body>
 </html>

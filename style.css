@@ -25,6 +25,10 @@ body{
     padding: 17px 30px;
     border-bottom: 1px solid #bfbfbf;
 }
+.container header.active{
+    cursor: move;
+    user-select: none;
+}
 .container .content{
     display: flex;
     align-items: center;
